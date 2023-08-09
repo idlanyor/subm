@@ -24,19 +24,50 @@ const eventHandler = (aliasModul, fileModul, namaElemenBadge) => {
 
 // Daftar tombol dan konfigurasinya
 const tombolConfig = [
-    { aliasModul: 'showMatkul', fileModul: 'matkul', namaElemenBadge: 'countMatkul', btnElemen: 'btnMatkul' },
-    { aliasModul: 'showMahasiswa', fileModul: 'mahasiswa', namaElemenBadge: 'countMhs', btnElemen: 'btnMhs' },
-    { aliasModul: 'showProdi', fileModul: 'prodi', namaElemenBadge: 'countProdi', btnElemen: 'btnProdi' },
-    { aliasModul: 'showLuring', fileModul: 'luring', namaElemenBadge: 'countLuring', btnElemen: 'btnLuring' },
+    {
+        aliasModul: 'showMatkul',
+        fileModul: 'matkul',
+        namaElemenBadge: 'countMatkul',
+        btnElemen: 'btnMatkul'
+    },
+    {
+        aliasModul: 'showMahasiswa',
+        fileModul: 'mahasiswa',
+        namaElemenBadge: 'countMhs',
+        btnElemen: 'btnMhs'
+    },
+    {
+        aliasModul: 'showProdi',
+        fileModul: 'prodi',
+        namaElemenBadge: 'countProdi',
+        btnElemen: 'btnProdi'
+    },
+    {
+        aliasModul: 'showLuring',
+        fileModul: 'luring',
+        namaElemenBadge: 'countLuring',
+        btnElemen: 'btnLuring'
+    },
 ];
 
 // Tambahkan event listener untuk setiap tombol
 tombolConfig.forEach(({ aliasModul, fileModul, namaElemenBadge, btnElemen }) => {
     const btn = document.getElementById(btnElemen);
-    btn.addEventListener('click', async () => {
-        await eventHandler(aliasModul, fileModul, namaElemenBadge);
+    btn.addEventListener('click', (ev) => {
+        ev.preventDefault()
+        eventHandler(aliasModul, fileModul, namaElemenBadge);
+        // // ev.currentTarget.classList.toggle('active');
+        // if (ev.currentTarget.id == btnElemen) {
+        //     if (!ev.currentTarget.classList.contains('active')) {
+        //         ev.currentTarget.classList.add('active');
+        //     } else {
+        //         ev.currentTarget.classList.remove('active');
+        //     }
+        // }
     });
 });
 
+
 // Tampilkan data pertama kali ketika halaman dimuat
 await tampilkanData('showMatkul', 'matkul', 'countMatkul');
+

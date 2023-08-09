@@ -5,7 +5,7 @@
 body {
   font-family: "Quicksand";
   overflow-x: hidden;
-  background-color: aqua !important;
+  background-color: rgba(35, 38, 242, 0.45) !important;
 }
 
 .material-icons.md-18 {
@@ -14,4 +14,12 @@ body {
 
 aside {
   background-color: white;
+}
+
+th {
+  text-align: center !important;
+}
+
+td {
+  text-align: center !important;
 }/*# sourceMappingURL=cascading.css.map */

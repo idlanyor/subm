@@ -1,48 +1,40 @@
-// matkul.js
+// prodi.js
 const tBody = document.querySelector('tBody');
 const tHead = document.querySelector('thead');
+const cardTitle = document.getElementById('toggleTitle')
+
 
 async function readDataFromFile() {
-    const response = await fetch('./data/dataMatkul.json');
-    const dataMatkul = await response.json();
-    return dataMatkul;
+    const response = await fetch('./data/dataProdi.json');
+    const dataProdi = await response.json();
+    return dataProdi;
 }
 
-export async function showMatkul() {
+export async function showProdi() {
     try {
-        const dataMatkul = await readDataFromFile();
+        const dataProdi = await readDataFromFile();
         let tr = '';
-
-        if (dataMatkul.length === 0) {
-            tr = '<tr><td colspan="8" class="text-center">Tidak ada data Mata Kuliah yang tersedia</td></tr>';
-        } else {
-            // Tampilkan data mata kuliah ke dalam tabel
-            // ...
-
-            // Perbarui <thead> sesuai dengan data <tbody> yang ditampilkan
-            const headRow = `
+        const headRow = `
                 <tr class="text-center">
                     <th>No</th>
-                    <th>Kode</th>
-                    <th>Nama Mata Kuliah</th>
-                    <th>Dosen</th>
-                    <th>Hari</th>
-                    <th>Jam</th>
-                    <th>Prodi</th>
-                    <th>Action</th>
+                    <th>Nama Prodi</th>
+                    <th>Kode Prodi</th>
+                    <th>Jenjang</th>
                 </tr>
             `;
 
-            dataMatkul.forEach((matkul, index) => {
+        if (dataProdi.length === 0) {
+            tr = '<tr><td colspan="8" class="text-center">Tidak ada data Prodi yang tersedia</td></tr>';
+        } else {
+
+
+            dataProdi.forEach((prodi, index) => {
                 const row = `
                         <tr>
                             <td>${index + 1}</td>
-                            <td>#${matkul.kodeMatkul}</td>
-                            <td>${matkul.mataKuliah}</td>
-                            <td>${matkul.dosenPengampu}</td>
-                            <td>${matkul.hari}</td>
-                            <td>${matkul.jam}</td>
-                            <td>${matkul.prodi}</td>
+                            <td>#${prodi.namaProdi}</td>
+                            <td>${prodi.kodeProdi}</td>
+                            <td>${prodi.jenjang}</td>
                             <td>
                                 <button class="btn btn-primary btn-sm "><span class="material-icons md-18">visibility</span></button>
                                 <button class="btn btn-success btn-sm "><span class="material-icons md-18">edit</span></button>
@@ -53,11 +45,12 @@ export async function showMatkul() {
                 tr += row;
             });
 
-            tHead.innerHTML = headRow;
         }
 
+        tHead.innerHTML = headRow;
         tBody.innerHTML = tr;
-        return dataMatkul.length;
+        cardTitle.innerText = 'Data Prodi'
+        return dataProdi.length;
     } catch (error) {
         console.error('Terjadi kesalahan:', error);
         return 0;

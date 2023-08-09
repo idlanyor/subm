@@ -1,3 +1,5 @@
+// @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
 * {
     box-sizing: border-box;
 }
@@ -5,7 +7,7 @@
 body {
     font-family: "Quicksand";
     overflow-x: hidden;
-    background-color: aqua !important;
+    background-color: rgba(35, 38, 242, 0.45) !important;
 }
 
 .material-icons.md-18 {
@@ -13,4 +15,10 @@ body {
 }
 aside{
     background-color: white;
+}
+th{
+    text-align: center !important;
+}
+td{
+    text-align: center !important;
 }

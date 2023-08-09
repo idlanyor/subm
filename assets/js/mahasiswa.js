@@ -1,39 +1,20 @@
 // Mahasiswa.js
 const tBody = document.querySelector('tBody');
 const tHead = document.querySelector('thead');
-const dataMahasiswa = [
-    {
-        nim: 'SSI202203088',
-        namaMhs: 'Struktur Data',
-        prodi: 'Rahmam Manto, S.Kom',
-        email: 'Selasa',
-    },
-    {
-        nim: 'SSI202203088',
-        namaMhs: 'Basis Data',
-        prodi: 'Siti Delimasari',
-        email: 'Rabu',
-    }, {
-        nim: 'SSI202203088',
-        namaMhs: 'English 2',
-        prodi: 'Atika Shinta N,S.Pd',
-        email: 'Senin',
-    }, {
-        nim: 'SSI202203088',
-        namaMhs: 'Interaksi Manusia & Komputer',
-        prodi: 'Febri Meliana K.R.,S.Kom',
-        email: 'Jumat',
-    },
-]
+const cardTitle = document.getElementById('toggleTitle')
+async function readDataFromFile() {
+    const response = await fetch('./data/dataMhs.json');
+    const dataMahasiswa = await response.json();
+    return dataMahasiswa;
+}
+
 
 export async function showMahasiswa() {
     try {
-        let tr = '';
-        // Tampilkan data mata kuliah ke dalam tabel
-        // ...
-        tBody.innerHTML = tr;
+        const dataLuring = await readDataFromFile();
 
-        // Perbarui <thead> sesuai dengan data <tbody> yang ditampilkan
+        let tr = '';
+        tBody.innerHTML = tr;
         const headRow = `
             <tr class="text-center">
                 <th>No</th>
@@ -44,10 +25,12 @@ export async function showMahasiswa() {
                 <th>Action</th>
             </tr>
         `;
-        
+        if (dataLuring.length === 0) {
+            tr = '<tr><td colspan="8" class="text-center">Tidak ada data List Luring yang tersedia</td></tr>';
+        } else {
 
-        dataMahasiswa.forEach((mhs, index) => {
-            const row = `
+            dataMahasiswa.forEach((mhs, index) => {
+                const row = `
                     <tr>
                         <td>${index + 1}</td>
                         <td>${mhs.nim}</td>
@@ -61,10 +44,12 @@ export async function showMahasiswa() {
                         </td>
                     </tr>
                     `;
-            tr += row;
-        });
+                tr += row;
+            });
+        }
         tHead.innerHTML = headRow;
         tBody.innerHTML = tr;
+        cardTitle.innerText = 'Data Mahasiswa'
         return dataMahasiswa.length;
     } catch (error) {
         console.error('Terjadi kesalahan:', error);
