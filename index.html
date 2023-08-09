@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presensi C2.4 🚀 | Sistem Informasi</title>
+    <link rel="stylesheet" href="assets/css/cascading.css">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/font-awesome/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link rel="shortcut icon" href="assets/font-awesome/svgs/brands/js-square.svg" type="image/x-icon"> -->
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Presensi C2.4 🚀 </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <button class="nav-link btn btn-link" id="btnMatkul">Mata Kuliah</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link btn btn-link" id="btnMhs">Mahasiswa</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link btn btn-link" id="btnProdi">Prodi</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link btn btn-link" id="btnLuring">List Luring</button>
+                        </li>
+
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="row d-flex justify-content-center my-4 container-fluid mx-auto">
+            <div class="card col-md-12 px-4 py-4">
+                <div class="d-flex flex-column ">
+                    <div class="tab-content flex-grow-1 " id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-matkul" role="tabpanel"
+                            aria-labelledby="btnMatkul" tabindex="1">
+                            <!-- //tabel Matkul -->
+                            <table class="table table-hover table-bordered table-striped table-responsive ">
+                                <thead>
+                                </thead>
+                                <tbody id="matkulData">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="btnMhs"
+                            tabindex="0">
+                            <div class="tab-pane fade show active" id="v-pills-mhs" role="tabpanel"
+                                aria-labelledby="btnMatkul" tabindex="1">
+                                <!-- //tabel Matkul -->
+                                <table class="table table-hover table-bordered table-striped table-responsive ">
+                                    <thead>
+                                    </thead>
+                                    <tbody id="matkulData">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <aside class="card col-md-2 ">
+                <div class="card-header">
+                    <h1>List Item</h1>
+                </div>
+                <div class="card-body ">
+                    <div class="list-group">
+                        <button type="button" id="btnMatkul" class="list-group-item list-group-item-action active "
+                            aria-current="true">
+                            Data Matkul
+                            <span
+                                class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger"
+                                id="countMatkul">
+
+                                <span class="visually-hidden">data mata kuliah</span>
+                            </span>
+                        </button>
+                        <button type="button" id="btnMhs" class="list-group-item list-group-item-action "
+                            aria-current="false">
+                            Data Mahasiswa
+                            <span
+                                class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger"
+                                id="countMhs">
+
+                                <span class="visually-hidden">data mata kuliah</span>
+                            </span>
+                        </button>
+                        <button type="button" id="btnProdi" class="list-group-item list-group-item-action "
+                            aria-current="false">
+                            Data Prodi
+                            <span
+                                class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger"
+                                id="countProdi">
+
+                                <span class="visually-hidden">data mata kuliah</span>
+                            </span>
+                        </button>
+                        <button type="button" id="btnLuring" class="list-group-item list-group-item-action "
+                            aria-current="false">
+                            List Luring
+                            <span
+                                class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger"
+                                id="countLuring">
+
+                                <span class="visually-hidden">data mata kuliah</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </aside> -->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between ">
+                        <h2 class="card-title ">Data Matkul</h2>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop"><span class="material-icons">add</span></button>
+                    </div>
+                    <div class="card-body py-4">
+                        <table class="table table-hover table-bordered table-striped ">
+                            <thead>
+                            </thead>
+                            <tbody id="matkulData">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- modal tambah data -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form>
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Tambah data</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Dibuat untuk submission (Pemrograman Web Dasar) Dicoding</p>
+    </footer>
+    <script src="assets/js/script.js" type="module" defer></script>
+    <script src="assets/jquery/dist/jquery.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

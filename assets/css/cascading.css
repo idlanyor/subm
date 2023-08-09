@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand";
+  overflow-x: hidden;
+  background-color: aqua !important;
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+aside {
+  background-color: white;
+}/*# sourceMappingURL=cascading.css.map */
